@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ItemCollector : MonoBehaviour
 {
     [SerializeField] private Text kiwisText;
+    [SerializeField] private AudioSource collectSoundEffect;
 
     private int kiwisCollected = 0;
 
@@ -13,6 +14,7 @@ public class ItemCollector : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Kiwi"))
         {
+            collectSoundEffect.Play();
             Destroy(collision.gameObject);
             kiwisCollected++;
             Debug.Log($"Kiwi collected and destroyed. KiwisCollected: {kiwisCollected}");

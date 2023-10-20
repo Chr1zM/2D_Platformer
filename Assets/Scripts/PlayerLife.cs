@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
+    [SerializeField] private AudioSource deathSoundEffect;
+
     private Rigidbody2D rigidbody2D;
 
     private Animator animator;
@@ -23,6 +25,7 @@ public class PlayerLife : MonoBehaviour
 
     private void Die()
     {
+        deathSoundEffect.Play();
         rigidbody2D.bodyType = RigidbodyType2D.Static;
         animator.SetTrigger("death");
         Debug.Log("Player died");
