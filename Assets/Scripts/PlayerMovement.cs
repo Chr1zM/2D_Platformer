@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -19,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private AudioSource jumpSoundEffect;
 
+    [SerializeField] private bool movementEnabled = true;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -31,6 +34,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (!IsMovementEnabled())
+        {
+            animator.SetInteger("movementState", (int)MovementState.idle);
+            return;
+        }
+
         dirX = Input.GetAxisRaw("Horizontal");
         rigidbody2d.velocity = new Vector2(dirX * moveSpeed, rigidbody2d.velocity.y);
 
@@ -77,5 +86,15 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(collider2d.bounds.center, collider2d.bounds.size, 0f, Vector2.down, 0.01f, jumpableGround);
+    }
+
+    private bool IsMovementEnabled()
+    {
+        return movementEnabled;
+    }
+
+    public void SetMovementEnabled(bool movementEnabled)
+    {
+        this.movementEnabled = movementEnabled;
     }
 }
