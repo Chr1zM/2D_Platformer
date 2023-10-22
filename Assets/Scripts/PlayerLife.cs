@@ -11,6 +11,8 @@ public class PlayerLife : MonoBehaviour
 
     private Animator animator;
 
+    private bool dead = false;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -20,11 +22,12 @@ public class PlayerLife : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Trap")) Die();
+        if (collision.gameObject.CompareTag("Trap") && !dead) Die();
     }
 
     private void Die()
     {
+        dead = true;
         deathSoundEffect.Play();
         rigidbody2D.bodyType = RigidbodyType2D.Static;
         animator.SetTrigger("death");
