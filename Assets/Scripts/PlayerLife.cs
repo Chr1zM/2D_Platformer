@@ -7,7 +7,7 @@ public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private AudioSource deathSoundEffect;
 
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D rb;
 
     private Animator animator;
 
@@ -16,7 +16,7 @@ public class PlayerLife : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
@@ -29,7 +29,7 @@ public class PlayerLife : MonoBehaviour
     {
         dead = true;
         deathSoundEffect.Play();
-        rigidbody2D.bodyType = RigidbodyType2D.Static;
+        rb.bodyType = RigidbodyType2D.Static;
         animator.SetTrigger("death");
         Debug.Log("Player died");
     }
