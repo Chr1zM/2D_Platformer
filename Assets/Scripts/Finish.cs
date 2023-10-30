@@ -25,8 +25,18 @@ public class Finish : MonoBehaviour
 
     private void CompleteLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Debug.Log("Load next Level");
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+            Debug.Log("Load next Level");
+        }
+        else
+        {
+            SceneManager.LoadScene(0); // Lade das Hauptmenü
+            Debug.Log("All Levels completed. Returning to Main Menu.");
+        }
     }
 
 }

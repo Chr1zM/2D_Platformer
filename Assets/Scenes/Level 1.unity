@@ -73617,8 +73617,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1865597655 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 5353658827987967038, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
-  m_PrefabInstance: {fileID: 5353658827636580073}
+  m_CorrespondingSourceObject: {fileID: 4896674841764669298, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
+  m_PrefabInstance: {fileID: 4896674842181068197}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1874495203 stripped
 Transform:
@@ -73911,7 +73911,7 @@ GameObject:
   - component: {fileID: 1993163619}
   - component: {fileID: 1993163618}
   m_Layer: 5
-  m_Name: KiwisText
+  m_Name: FruitsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73934,8 +73934,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 105, y: -37}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 123.15309, y: -37}
+  m_SizeDelta: {x: 220, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1993163618
 MonoBehaviour:
@@ -73959,10 +73959,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e9959be1a8e387749ba164ed9635bff5, type: 3}
-    m_FontSize: 14
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -73970,7 +73970,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Kiwis: 0'
+  m_Text: 'Fruits: 0'
 --- !u!222 &1993163619
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -80926,71 +80926,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b6f097cd2064ee4d8848c2bb6286cc7, type: 3}
---- !u!1001 &5353658827636580073
+--- !u!1001 &4896674842181068197
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5353658827987967026, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
-      propertyPath: kiwisText
-      value: 
-      objectReference: {fileID: 1993163618}
-    - target: {fileID: 5353658827987967037, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
+    - target: {fileID: 4896674841764669297, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5353658827987967037, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5353658827987967038, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
+    - target: {fileID: 4896674841764669298, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 5353658827987967038, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
+    - target: {fileID: 4896674841764669298, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.36
       objectReference: {fileID: 0}
-    - target: {fileID: 5353658827987967038, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
+    - target: {fileID: 4896674841764669298, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.04
       objectReference: {fileID: 0}
-    - target: {fileID: 5353658827987967038, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
+    - target: {fileID: 4896674841764669298, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5353658827987967038, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
+    - target: {fileID: 4896674841764669298, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5353658827987967038, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
+    - target: {fileID: 4896674841764669298, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5353658827987967038, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
+    - target: {fileID: 4896674841764669298, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5353658827987967038, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
+    - target: {fileID: 4896674841764669298, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5353658827987967038, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
+    - target: {fileID: 4896674841764669298, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5353658827987967038, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
+    - target: {fileID: 4896674841764669298, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5353658827987967038, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
+    - target: {fileID: 4896674841764669298, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4896674841764669310, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
+      propertyPath: fruitsText
+      value: 
+      objectReference: {fileID: 1993163618}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 61db28b69c4e5a84d8bcb3a78698baf5, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
 --- !u!1001 &9206505489832408562
 PrefabInstance:
   m_ObjectHideFlags: 0
