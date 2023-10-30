@@ -11,6 +11,7 @@ public class FallingBlock : MonoBehaviour
     [SerializeField] private float returnSpeed = 4f;
     [SerializeField] private float standTime = 1f;
     [SerializeField] private LayerMask resetGround;
+    [SerializeField] private AudioSource hitSoundEffect;
 
     private BoxCollider2D collider2d;
     private Rigidbody2D rb;
@@ -113,6 +114,7 @@ public class FallingBlock : MonoBehaviour
         if (Physics2D.BoxCast(collider2d.bounds.center, collider2d.bounds.size, 0f, Vector2.down, 0.01f, resetGround))
         {
             Debug.Log("RockHead: Hit the Ground");
+            hitSoundEffect.Play();
             hasHitGround = true;
             isFalling = false;
         }
