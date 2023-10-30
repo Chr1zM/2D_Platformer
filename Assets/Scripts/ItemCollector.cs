@@ -19,8 +19,6 @@ public class ItemCollector : MonoBehaviour
             Destroy(collision.gameObject);
             fruitsCollected++;
 
-            UpdateTotalFruitCounter(1);
-
             Debug.Log($"Kiwi collected. fruitsCollected: {fruitsCollected}");
             fruitsText.text = "Fruits: " + fruitsCollected;
         }
@@ -29,12 +27,15 @@ public class ItemCollector : MonoBehaviour
         // Bananas count as 3 fruits
     }
 
-    private void UpdateTotalFruitCounter(int count)
+    /// <summary>
+    /// The method is only called when finishing a level.
+    /// <para>See: <code>Finish.cs</code></para>
+    /// </summary>
+    public void UpdateTotalFruitCounter()
     {
         int totalFruits = PlayerPrefs.GetInt("TotalFruits", 0);
-        totalFruits += count;
+        totalFruits += fruitsCollected; // Add all collected fruits in the level
         PlayerPrefs.SetInt("TotalFruits", totalFruits);
         PlayerPrefs.Save();
     }
-
 }

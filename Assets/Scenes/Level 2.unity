@@ -810,8 +810,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4896674841764669310, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
+      propertyPath: fruitsText
+      value: 
+      objectReference: {fileID: 1993163618}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
+--- !u!4 &211426227 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4896674841764669298, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
+  m_PrefabInstance: {fileID: 211426226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &236611961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1860,7 +1869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384c6e520b4c87f4181c32c79bcd28ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 211426227}
 --- !u!4 &524212970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4517435098112215913, guid: a813b801db3facb49990ef0f1f427c57, type: 3}
@@ -77685,8 +77694,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 105, y: -37}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 123.1531, y: -37}
+  m_SizeDelta: {x: 220, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1993163618
 MonoBehaviour:

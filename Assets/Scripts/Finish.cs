@@ -13,7 +13,7 @@ public class Finish : MonoBehaviour
         {
             finishSoundEffect.Play();
             DisablePlayerMovement(collision.gameObject.GetComponent<PlayerMovement>());
-
+            collision.gameObject.GetComponent<ItemCollector>().UpdateTotalFruitCounter();
             Invoke("CompleteLevel", 2f);
         }
     }

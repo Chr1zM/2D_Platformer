@@ -14,6 +14,4 @@ public class GameManager : MonoBehaviour
         totalFruitsText.text = "TOTAL FRUITS COLLECTED: " + totalFruits;
     }
 
-
-
 }
