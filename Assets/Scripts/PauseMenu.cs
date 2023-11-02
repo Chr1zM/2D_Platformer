@@ -51,6 +51,7 @@ public class PauseMenu : MonoBehaviour
     public void GoToMainMenu()
     {
         Debug.Log("Load Main Menu (Level 0)");
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
