@@ -34,7 +34,7 @@ public class Finish : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(0); // Lade das Hauptmenü
+            SceneManager.LoadScene("MainMenu"); // Lade das Hauptmenü
             Debug.Log("All Levels completed. Returning to Main Menu.");
         }
     }

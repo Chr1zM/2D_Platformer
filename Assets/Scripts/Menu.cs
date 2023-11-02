@@ -8,7 +8,13 @@ public class Menu : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Load Level 1");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Level 1");
+    }
+
+    public void ShowShop()
+    {
+        Debug.Log("Load Shop Scene");
+        SceneManager.LoadScene("Shop");
     }
 
     public void QuitGame()
