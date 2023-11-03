@@ -81034,6 +81034,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3999284205631595946, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
+      propertyPath: skins.Array.data[1].sprites.Array.data[13]
+      value: 
+      objectReference: {fileID: -1363835404106015672, guid: d348dff3819df794186a80cb95777629, type: 3}
+    - target: {fileID: 3999284205631595946, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
+      propertyPath: skins.Array.data[4].sprites.Array.data[13]
+      value: 
+      objectReference: {fileID: -234006623, guid: 4fc2f0eda8cd7a24f9a55ca8be982b2f, type: 3}
     - target: {fileID: 4896674841764669297, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
       propertyPath: m_Name
       value: Player
