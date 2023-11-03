@@ -73761,12 +73761,12 @@ Transform:
   - {fileID: 2037033396}
   - {fileID: 1898100314}
   - {fileID: 292729402}
-  - {fileID: 847577707}
   - {fileID: 1417719104}
+  - {fileID: 847577707}
   - {fileID: 1952807718}
   - {fileID: 504512514}
-  - {fileID: 1398158113}
   - {fileID: 1793672588}
+  - {fileID: 1398158113}
   m_Father: {fileID: 1596218027}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74035,8 +74035,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 123.15309, y: -37}
-  m_SizeDelta: {x: 220, y: 30}
+  m_AnchoredPosition: {x: 160, y: -35}
+  m_SizeDelta: {x: 300, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1993163618
 MonoBehaviour:
@@ -74065,13 +74065,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Fruits: 0'
+  m_Text: 'Fruits: 0/0'
 --- !u!222 &1993163619
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -8,7 +8,14 @@ public class ItemCollector : MonoBehaviour
     [SerializeField] private Text fruitsText;
     [SerializeField] private AudioSource collectSoundEffect;
 
+    private int levelFruits = 0;
     private int fruitsCollected = 0;
+
+    private void Start()
+    {
+        levelFruits = GameObject.FindGameObjectsWithTag("Kiwi").Length + (GameObject.FindGameObjectsWithTag("Banana").Length * 3);
+        UpdateFruitsText();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,20 +26,24 @@ public class ItemCollector : MonoBehaviour
             Destroy(collision.gameObject);
             fruitsCollected++;
 
-            Debug.Log($"Kiwi collected. fruitsCollected: {fruitsCollected}");
-            fruitsText.text = "Fruits: " + fruitsCollected;
+            UpdateFruitsText();
         }
 
+        // Kiwi counts as 3 fruits
         if (collision.gameObject.CompareTag("Banana"))
         {
             collectSoundEffect.Play();
             Destroy(collision.gameObject);
             fruitsCollected+=3;
 
-            Debug.Log($"Banana collected. fruitsCollected: {fruitsCollected}");
-            fruitsText.text = "Fruits: " + fruitsCollected;
+            UpdateFruitsText();
         }
     }
+    private void UpdateFruitsText()
+    {
+        fruitsText.text = $"Fruits: {fruitsCollected}/{levelFruits}";
+    }
+
 
     /// <summary>
     /// The method is only called when finishing a level.
