@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         int totalFruits = PlayerPrefs.GetInt("TotalFruits", 0);
-        totalFruitsText.text = "TOTAL FRUITS COLLECTED: " + totalFruits;
+        totalFruitsText.text = "TOTAL FRUITS: " + totalFruits;
     }
 
 }

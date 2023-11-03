@@ -23,8 +23,15 @@ public class ItemCollector : MonoBehaviour
             fruitsText.text = "Fruits: " + fruitsCollected;
         }
 
-        // TODO: implement Bananas
-        // Bananas count as 3 fruits
+        if (collision.gameObject.CompareTag("Banana"))
+        {
+            collectSoundEffect.Play();
+            Destroy(collision.gameObject);
+            fruitsCollected+=3;
+
+            Debug.Log($"Banana collected. fruitsCollected: {fruitsCollected}");
+            fruitsText.text = "Fruits: " + fruitsCollected;
+        }
     }
 
     /// <summary>
