@@ -680,6 +680,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopItem (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1168704785905909332, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
+      propertyPath: m_Text
+      value: Selected
+      objectReference: {fileID: 0}
     - target: {fileID: 3544287490414315764, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -771,6 +775,22 @@ PrefabInstance:
     - target: {fileID: 5746032159208868373, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
       propertyPath: m_Text
       value: 'Price: 0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804648020336708390, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
+      propertyPath: m_Color.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804648020336708390, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804648020336708390, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804648020336708390, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
