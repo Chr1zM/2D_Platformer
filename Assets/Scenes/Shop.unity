@@ -877,7 +877,7 @@ PrefabInstance:
     - target: {fileID: 4238509970919137745, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1441979250, guid: 4fc2f0eda8cd7a24f9a55ca8be982b2f, type: 3}
+      objectReference: {fileID: -1681491661, guid: 4fc2f0eda8cd7a24f9a55ca8be982b2f, type: 3}
     - target: {fileID: 5746032159208868373, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
       propertyPath: m_Text
       value: 'Price: 1000'

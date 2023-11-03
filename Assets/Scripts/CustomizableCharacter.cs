@@ -31,29 +31,38 @@ public class CustomizableCharacter : MonoBehaviour
 
     void SkinChoice()
     {
-        if (spriteRenderer.sprite.name.Contains("Idle (32x32)"))
-        {
-            string spriteName = spriteRenderer.sprite.name;
-            spriteName = spriteName.Replace("Idle (32x32)_", "");
-            int spriteNr = int.Parse(spriteName);
+        string spriteName = spriteRenderer.sprite.name;
+        int spriteNr;
 
-            spriteRenderer.sprite = skins[skinNr].sprites[spriteNr];
-        }
-        else if (spriteRenderer.sprite.name.Contains("Jump (32x32)"))
+        switch (spriteName)
         {
-            int spriteNr = 11;
-            spriteRenderer.sprite = skins[skinNr].sprites[spriteNr];
-        }
-        else if (spriteRenderer.sprite.name.Contains("Fall (32x32)"))
-        {
-            int spriteNr = 12;
-            spriteRenderer.sprite = skins[skinNr].sprites[spriteNr];
+            case string s when s.Contains("Idle (32x32)_"):
+                spriteNr = int.Parse(s.Replace("Idle (32x32)_", ""));
+                spriteRenderer.sprite = skins[skinNr].spritesIdle[spriteNr];
+                break;
+            case string s when s.Contains("Run (32x32)_"):
+                spriteNr = int.Parse(s.Replace("Run (32x32)_", ""));
+                spriteRenderer.sprite = skins[skinNr].spritesRun[spriteNr];
+                break;
+            case string s when s.Contains("Jump (32x32)"):
+                spriteRenderer.sprite = skins[skinNr].spriteJump;
+                break;
+            case string s when s.Contains("Fall (32x32)"):
+                spriteRenderer.sprite = skins[skinNr].spriteFall;
+                break;
+            default:
+                break;
         }
     }
+
 }
 
 [System.Serializable]
 public struct Skins
 {
-    public Sprite[] sprites;
+    public string skinName;
+    public Sprite[] spritesIdle;
+    public Sprite[] spritesRun;
+    public Sprite spriteJump;
+    public Sprite spriteFall;
 }
