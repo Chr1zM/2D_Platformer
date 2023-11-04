@@ -7,11 +7,11 @@ public class ShopItem : MonoBehaviour
 {
     [SerializeField] private string itemName;
     [SerializeField] private Text totalFruitsText;
-    private int price;
     private Text textPrice;
     private Button buttonBuy;
     private Text textButtonBuy;
 
+    private int price;
     private bool isPurchased;
 
     private void Awake()
@@ -58,8 +58,8 @@ public class ShopItem : MonoBehaviour
                 PlayerPrefs.SetInt(itemName + "_Purchased", 1);
                 PlayerPrefs.Save();
 
-                totalFruitsText.text = "TOTAL FRUITS: " + PlayerPrefs.GetInt("TotalFruits", 0);
-                isPurchased = PlayerPrefs.GetInt(itemName + "_Purchased", 0) == 1;
+                totalFruitsText.text = "TOTAL FRUITS: " + totalFruits;
+                isPurchased = true;
                 UpdateUI();
             }
             else
@@ -83,24 +83,24 @@ public class ShopItem : MonoBehaviour
             textPrice.text = "Bought";
             textButtonBuy.text = "Selected";
 
-            ColorBlock buttonColors = buttonBuy.colors;
-            buttonColors.normalColor = new Color(0.0f, 255.0f, 0.0f, 0.5f);
-            buttonColors.pressedColor = new Color(0.0f, 100.0f, 0.0f, 0.5f);
-            buttonColors.selectedColor = new Color(0.0f, 255.0f, 0.0f, 0.5f);
-            buttonColors.disabledColor = new Color(0.0f, 255.0f, 0.0f, 0.5f);
-            buttonBuy.colors = buttonColors;
+            SetButtonColors(new Color(0.0f, 255.0f, 0.0f, 0.5f));
         }
         else if (isPurchased)
         {
             textPrice.text = "Bought";
             textButtonBuy.text = "Select";
 
-            ColorBlock buttonColors = buttonBuy.colors;
-            buttonColors.normalColor = new Color(255.0f, 255.0f, 255.0f, 1.0f);
-            buttonColors.pressedColor = new Color(100.0f, 100.0f, 100.0f, 1.0f);
-            buttonColors.selectedColor = new Color(255.0f, 255.0f, 255.0f, 1.0f);
-            buttonColors.disabledColor = new Color(255.0f, 255.0f, 255.0f, 1.0f);
-            buttonBuy.colors = buttonColors;
+            SetButtonColors(new Color(255.0f, 255.0f, 255.0f, 1.0f));
         }
+    }
+
+    private void SetButtonColors(Color normalColor)
+    {
+        ColorBlock buttonColors = buttonBuy.colors;
+        buttonColors.normalColor = normalColor;
+        buttonColors.pressedColor = normalColor * 0.4f;
+        buttonColors.selectedColor = normalColor;
+        buttonColors.disabledColor = normalColor;
+        buttonBuy.colors = buttonColors;
     }
 }
