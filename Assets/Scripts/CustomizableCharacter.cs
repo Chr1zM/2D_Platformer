@@ -5,13 +5,21 @@ using UnityEngine;
 
 public class CustomizableCharacter : MonoBehaviour
 {
-    public int skinNr;
-    public Skins[] skins;
+    [SerializeField] private int skinNr;
+    [SerializeField] private Skins[] skins;
     SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < skins.Length; i++)
+        {
+            if (skins[i].skinName == PlayerPrefs.GetString("SelectedPlayerSkin", "VirtualGuy"))
+            {
+                skinNr = i;
+            }
+        }
+
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 

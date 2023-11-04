@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3544287490414315764}
+  - component: {fileID: 9074362818351784315}
   m_Layer: 5
   m_Name: ShopItem
   m_TagString: Untagged
@@ -39,6 +40,20 @@ RectTransform:
   m_AnchoredPosition: {x: -401.03586, y: -153.54584}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9074362818351784315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351812210390486274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c5e6e2bfcf2ac4c97881231feadc82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: 
+  totalFruitsText: {fileID: 0}
 --- !u!1 &3411677647801653576
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,13 @@ public class GameManager : MonoBehaviour
     {
         int totalFruits = PlayerPrefs.GetInt("TotalFruits", 0);
         totalFruitsText.text = "TOTAL FRUITS: " + totalFruits;
+
+        if (!PlayerPrefs.HasKey("SelectedPlayerSkin"))
+        {
+            PlayerPrefs.SetString("SelectedPlayerSkin", "VirtualGuy");
+            PlayerPrefs.Save();
+        }
+
     }
 
 }
