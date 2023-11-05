@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ResetPlayerPrefs();
+
         int totalFruits = PlayerPrefs.GetInt("TotalFruits", 0);
         totalFruitsText.text = "TOTAL FRUITS: " + totalFruits;
 
@@ -18,7 +20,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetString("SelectedPlayerSkin", "VirtualGuy");
             PlayerPrefs.Save();
         }
-        ResetPlayerPrefs();
     }
 
     public void ResetPlayerPrefs()

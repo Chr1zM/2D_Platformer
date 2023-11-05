@@ -635,6 +635,18 @@ MonoBehaviour:
     - {fileID: -234006623, guid: 4fc2f0eda8cd7a24f9a55ca8be982b2f, type: 3}
     - {fileID: -234006623, guid: 4fc2f0eda8cd7a24f9a55ca8be982b2f, type: 3}
     - {fileID: -234006623, guid: 4fc2f0eda8cd7a24f9a55ca8be982b2f, type: 3}
-    spritesRun: []
+    spritesRun:
+    - {fileID: 2111707954, guid: 118b93559df478a4ba1e3d1284de56f0, type: 3}
+    - {fileID: -1491134685, guid: 118b93559df478a4ba1e3d1284de56f0, type: 3}
+    - {fileID: -1543614408, guid: 118b93559df478a4ba1e3d1284de56f0, type: 3}
+    - {fileID: 2135364051, guid: 118b93559df478a4ba1e3d1284de56f0, type: 3}
+    - {fileID: 276479517, guid: 118b93559df478a4ba1e3d1284de56f0, type: 3}
+    - {fileID: -1820417895, guid: 118b93559df478a4ba1e3d1284de56f0, type: 3}
+    - {fileID: 1421872525, guid: 118b93559df478a4ba1e3d1284de56f0, type: 3}
+    - {fileID: 754154223, guid: 118b93559df478a4ba1e3d1284de56f0, type: 3}
+    - {fileID: 931273450, guid: 118b93559df478a4ba1e3d1284de56f0, type: 3}
+    - {fileID: -505908442, guid: 118b93559df478a4ba1e3d1284de56f0, type: 3}
+    - {fileID: -965278586, guid: 118b93559df478a4ba1e3d1284de56f0, type: 3}
+    - {fileID: -711392398, guid: 118b93559df478a4ba1e3d1284de56f0, type: 3}
     spriteJump: {fileID: 21300000, guid: 919271d07a3241a4f8714883ecc436f5, type: 3}
     spriteFall: {fileID: 21300000, guid: 9d3d5dadb12b35b4e90662a273a32829, type: 3}
