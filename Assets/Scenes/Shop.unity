@@ -224,7 +224,7 @@ PrefabInstance:
       objectReference: {fileID: -6367560908665664636, guid: cd947491a13509945aa1b644f9db3ef2, type: 3}
     - target: {fileID: 5746032159208868373, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
       propertyPath: m_Text
-      value: 'Price: 1000'
+      value: 'Price: 1500'
       objectReference: {fileID: 0}
     - target: {fileID: 9074362818351784315, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
       propertyPath: price
@@ -1036,7 +1036,7 @@ PrefabInstance:
       objectReference: {fileID: -1681491661, guid: 4fc2f0eda8cd7a24f9a55ca8be982b2f, type: 3}
     - target: {fileID: 5746032159208868373, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
       propertyPath: m_Text
-      value: 'Price: 2000'
+      value: 'Price: 3000'
       objectReference: {fileID: 0}
     - target: {fileID: 9074362818351784315, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
       propertyPath: price
@@ -1287,7 +1287,7 @@ PrefabInstance:
       objectReference: {fileID: -6367560908665664636, guid: d348dff3819df794186a80cb95777629, type: 3}
     - target: {fileID: 5746032159208868373, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
       propertyPath: m_Text
-      value: 'Price: 250'
+      value: 'Price: 500'
       objectReference: {fileID: 0}
     - target: {fileID: 9074362818351784315, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
       propertyPath: price
@@ -1681,7 +1681,7 @@ PrefabInstance:
       objectReference: {fileID: -6367560908665664636, guid: 3750f45c844123341b9a777a96cb1eca, type: 3}
     - target: {fileID: 5746032159208868373, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
       propertyPath: m_Text
-      value: 'Price: 500'
+      value: 'Price: 1000'
       objectReference: {fileID: 0}
     - target: {fileID: 9074362818351784315, guid: ab4ce82e96bc1f84da70c0b99357446c, type: 3}
       propertyPath: price

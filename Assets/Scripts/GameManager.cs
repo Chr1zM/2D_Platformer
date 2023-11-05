@@ -18,7 +18,18 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetString("SelectedPlayerSkin", "VirtualGuy");
             PlayerPrefs.Save();
         }
+        ResetPlayerPrefs();
+    }
 
+    public void ResetPlayerPrefs()
+    {
+        if (PlayerPrefs.GetInt("PlayerPrefsReset", 0) == 0)
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.SetInt("PlayerPrefsReset", 1);
+            PlayerPrefs.Save();
+            Debug.Log("PlayerPrefs wurden zurückgesetzt.");
+        }
     }
 
 }
