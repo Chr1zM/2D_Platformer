@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private AudioSource deathSoundEffect;
+    [SerializeField] private GameOverMenu gameOverMenu;
 
     private Rigidbody2D rb;
 
@@ -34,9 +35,10 @@ public class PlayerLife : MonoBehaviour
         Debug.Log("Player died");
     }
 
-    private void RestartLevel()
+    private void GameOver()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Debug.Log("Reload Game");
+        // This Method is called in the Player Animation "Player_Death" as an Event
+        Debug.Log("Game Over!");
+        gameOverMenu.ShowGameOverMenu();
     }
 }

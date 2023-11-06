@@ -29,13 +29,13 @@ public class Finish : MonoBehaviour
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(nextSceneIndex);
             Debug.Log("Load next Level");
+            SceneManager.LoadScene(nextSceneIndex);
         }
         else
         {
-            SceneManager.LoadScene("MainMenu"); // Lade das Hauptmenü
             Debug.Log("All Levels completed. Returning to Main Menu.");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 

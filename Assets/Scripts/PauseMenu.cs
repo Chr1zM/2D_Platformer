@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] public GameObject pauseMenu;
-    [SerializeField]  public Button continueButton;
-    [SerializeField]  public Button mainMenuButton;
-    [SerializeField] public Button quitButton;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private Button continueButton;
+    [SerializeField] private Button mainMenuButton;
+    [SerializeField] private Button quitButton;
 
     [SerializeField] private bool isPaused = false;
 
@@ -50,9 +50,9 @@ public class PauseMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        Debug.Log("Load Main Menu (Level 0)");
+        Debug.Log("Load Main Menu");
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()
