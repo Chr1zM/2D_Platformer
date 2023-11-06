@@ -15,7 +15,7 @@ public class SpikedBall : MonoBehaviour
     private void Start()
     {
         // init dynamic Chain for the swinging Ball
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < (int)radius * 4; i++)
         {
             GameObject chainLink = Instantiate(chainPrefab);
             chainLink.transform.position = transform.position;
