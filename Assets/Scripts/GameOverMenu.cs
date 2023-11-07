@@ -10,12 +10,16 @@ public class GameOverMenu : MonoBehaviour
     [SerializeField] private Button restartButton;
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button quitButton;
-
+    [SerializeField] private AudioSource gameOverMusic;
+    
     [SerializeField] private bool isActive = false;
+
+    private AudioSource backgroundMusic;
 
     // Start is called before the first frame update
     void Start()
     {
+        backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<AudioSource>();
         gameOverMenu.SetActive(isActive);
         restartButton.onClick.AddListener(RestartGame);
         mainMenuButton.onClick.AddListener(GoToMainMenu);
@@ -28,6 +32,14 @@ public class GameOverMenu : MonoBehaviour
         Time.timeScale = 0;
         isActive = true;
         gameOverMenu.SetActive(isActive);
+
+        PlayGameOverMusic();
+    }
+
+    private void PlayGameOverMusic()
+    {
+        gameOverMusic.Play();
+        backgroundMusic.Pause();
     }
 
     public void RestartGame()
