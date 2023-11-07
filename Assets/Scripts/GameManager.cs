@@ -24,6 +24,11 @@ public class GameManager : MonoBehaviour
 
     public void ResetPlayerPrefs()
     {
+        PlayerPrefs.SetInt("PlayerPrefsReset", 0);
+
+        /* 
+         * Uncomment this, if all the stats should be reseted
+         * 
         if (PlayerPrefs.GetInt("PlayerPrefsReset", 0) == 0)
         {
             PlayerPrefs.DeleteAll();
@@ -31,6 +36,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.Save();
             Debug.Log("PlayerPrefs wurden zurückgesetzt.");
         }
+        */
     }
 
 }

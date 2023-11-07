@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a70ee1045d88ce64cbc9fc020fcb6254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 4654220552654118854}
+  pauseMenuPanel: {fileID: 4654220552654118854}
   continueButton: {fileID: 4654220552050829638}
   mainMenuButton: {fileID: 4654220551199591012}
   quitButton: {fileID: 4654220552011328060}

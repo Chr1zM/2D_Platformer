@@ -8,7 +8,9 @@ public class LevelTimer : MonoBehaviour
     [SerializeField] private float maxTime = 60.0f;
     [SerializeField] private float currentTime;
     [SerializeField] private Text textTimer;
-    [SerializeField] private GameOverMenu gameOverMenu;
+    [SerializeField] private AudioSource gameOverMusic;
+    private AudioSource backgroundMusic;
+    private GameOverMenu gameOverMenu;
 
     private bool isRunning;
     private bool isGameOver;
@@ -16,6 +18,8 @@ public class LevelTimer : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<AudioSource>();
+        gameOverMenu = FindObjectOfType<GameOverMenu>();
         currentTime = maxTime;
         textTimer.text = currentTime.ToString();
         isRunning = true;
@@ -38,8 +42,9 @@ public class LevelTimer : MonoBehaviour
                 {
                     isGameOver = true;
                     gameOverMenu.ShowGameOverMenu();
-                    // TODO Start Game Over Music
-                    //  Stop BackgroundMusic
+
+                    gameOverMusic.Play();
+                    backgroundMusic.Pause();
                 }
             }
         }

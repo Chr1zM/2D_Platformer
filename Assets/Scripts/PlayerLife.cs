@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private AudioSource deathSoundEffect;
-    [SerializeField] private GameOverMenu gameOverMenu;
+    private GameOverMenu gameOverMenu;
 
     private Rigidbody2D rb;
 
@@ -17,6 +17,7 @@ public class PlayerLife : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        gameOverMenu = FindObjectOfType<GameOverMenu>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }

@@ -24,7 +24,6 @@ public class GameOverMenu : MonoBehaviour
 
     public void ShowGameOverMenu()
     {
-        // TODO: Pause Menü mittels Escape-Taste unterbinden
         Debug.Log("Game Over");
         Time.timeScale = 0;
         isActive = true;
@@ -48,5 +47,10 @@ public class GameOverMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public bool isGameOver()
+    {
+        return isActive;
     }
 }

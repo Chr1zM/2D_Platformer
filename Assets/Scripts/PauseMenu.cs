@@ -6,17 +6,20 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject pauseMenuPanel;
     [SerializeField] private Button continueButton;
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button quitButton;
 
     [SerializeField] private bool isPaused = false;
 
+    private GameOverMenu gameOverMenu;
+
     // Start is called before the first frame update
     void Start()
     {
-        pauseMenu.SetActive(isPaused);
+        gameOverMenu = FindObjectOfType<GameOverMenu>();
+        pauseMenuPanel.SetActive(isPaused);
         continueButton.onClick.AddListener(ResumeGame);
         mainMenuButton.onClick.AddListener(GoToMainMenu);
         quitButton.onClick.AddListener(QuitGame);
@@ -25,7 +28,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") && !gameOverMenu.isGameOver())
         {
             if (isPaused) ResumeGame();
             else PauseGame();
@@ -37,7 +40,7 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Game Paused");
         Time.timeScale = 0;
         isPaused = true;
-        pauseMenu.SetActive(isPaused);
+        pauseMenuPanel.SetActive(isPaused);
     }
 
     public void ResumeGame()
@@ -45,7 +48,7 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Game Resumed");
         Time.timeScale = 1;
         isPaused = false;
-        pauseMenu.SetActive(isPaused);
+        pauseMenuPanel.SetActive(isPaused);
     }
 
     public void GoToMainMenu()
