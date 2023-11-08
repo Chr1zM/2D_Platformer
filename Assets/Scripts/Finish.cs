@@ -6,21 +6,26 @@ using UnityEngine.SceneManagement;
 public class Finish : MonoBehaviour
 {
     [SerializeField] private AudioSource finishSoundEffect;
+    private LevelTimer levelTimer;
+
+    private void Start()
+    {
+        levelTimer = FindObjectOfType<LevelTimer>();
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Player")
         {
+            levelTimer.PauseTimer();
             finishSoundEffect.Play();
-            DisablePlayerMovement(collision.gameObject.GetComponent<PlayerMovement>());
+
+            collision.gameObject.GetComponent<PlayerMovement>().SetMovementEnabled(false);
             collision.gameObject.GetComponent<ItemCollector>().UpdateTotalFruitCounter();
+
             Invoke("CompleteLevel", 2f);
         }
-    }
-
-    private void DisablePlayerMovement(PlayerMovement playerMovement)
-    {
-        playerMovement.SetMovementEnabled(false);
     }
 
     private void CompleteLevel()
