@@ -158,6 +158,8 @@ MonoBehaviour:
     m_Bits: 64
   moveSpeed: 7
   jumpForce: 14
+  wallJumpForce: 10
+  wallSlideSpeed: 1
   jumpSoundEffect: {fileID: 4896674841764669304}
   movementEnabled: 1
 --- !u!114 &4896674841764669310
