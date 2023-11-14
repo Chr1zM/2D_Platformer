@@ -72364,6 +72364,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1965319860254705282, guid: 6fe393df735d2e2449529c152ce99854, type: 3}
+      propertyPath: chainPrefab
+      value: 
+      objectReference: {fileID: 6648175561660687312, guid: e3f84c5abda33f74ba212a3f3f3ba6c7, type: 3}
+    - target: {fileID: 1965319860254705282, guid: 6fe393df735d2e2449529c152ce99854, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 2057429036}

@@ -103,6 +103,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 2
+  chainPrefab: {fileID: 6648175561660687312, guid: e3f84c5abda33f74ba212a3f3f3ba6c7, type: 3}
 --- !u!114 &4271660990989250334
 MonoBehaviour:
   m_ObjectHideFlags: 0
