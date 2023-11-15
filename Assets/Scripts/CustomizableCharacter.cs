@@ -52,10 +52,14 @@ public class CustomizableCharacter : MonoBehaviour
                 spriteNr = int.Parse(s.Replace("Run (32x32)_", ""));
                 spriteRenderer.sprite = skins[skinNr].spritesRun[spriteNr];
                 break;
-            case string s when s.Contains("Jump (32x32)"):
+            case string s when s.Contains("Wall Jump (32x32)"):
+                spriteNr = int.Parse(s.Replace("Wall Jump (32x32)_", ""));
+                spriteRenderer.sprite = skins[skinNr].spriteWallslide[spriteNr];
+                break;
+            case string s when s.Equals("Jump (32x32)"):
                 spriteRenderer.sprite = skins[skinNr].spriteJump;
                 break;
-            case string s when s.Contains("Fall (32x32)"):
+            case string s when s.Equals("Fall (32x32)"):
                 spriteRenderer.sprite = skins[skinNr].spriteFall;
                 break;
             default:
@@ -71,6 +75,8 @@ public struct Skins
     public string skinName;
     public Sprite[] spritesIdle;
     public Sprite[] spritesRun;
+    public Sprite[] spriteWallslide;
     public Sprite spriteJump;
     public Sprite spriteFall;
+    
 }

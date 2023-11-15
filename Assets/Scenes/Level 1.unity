@@ -80905,9 +80905,17 @@ PrefabInstance:
       value: LevelManager
       objectReference: {fileID: 0}
     - target: {fileID: 7631096975292763543, guid: e930f6cb6476f7245ade2ca6acc06126, type: 3}
+      propertyPath: maxTime
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7631096975292763543, guid: e930f6cb6476f7245ade2ca6acc06126, type: 3}
       propertyPath: textTimer
       value: 
       objectReference: {fileID: 1107202566}
+    - target: {fileID: 7631096975292763543, guid: e930f6cb6476f7245ade2ca6acc06126, type: 3}
+      propertyPath: currentTime
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 7631096975292763543, guid: e930f6cb6476f7245ade2ca6acc06126, type: 3}
       propertyPath: gameOverMenu
       value: 

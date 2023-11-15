@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4896674841764669298}
   - component: {fileID: 4896674841764669299}
+  - component: {fileID: 4896674841764669311}
   - component: {fileID: 4896674841764669296}
   - component: {fileID: 4896674841764669309}
   - component: {fileID: 4896674841764669308}
   - component: {fileID: 4896674841764669310}
   - component: {fileID: 4896674841764669305}
-  - component: {fileID: 4896674841764669311}
   - component: {fileID: 4896674841764669304}
   - component: {fileID: 4896674841764669306}
   - component: {fileID: 4896674841764669307}
@@ -94,6 +94,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4896674841764669311
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4896674841764669297}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b0fe7f30f6285934084e346dadd4c2fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &4896674841764669296
 Rigidbody2D:
   serializedVersion: 4
@@ -189,27 +210,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathSoundEffect: {fileID: 4896674841764669307}
---- !u!95 &4896674841764669311
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4896674841764669297}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b0fe7f30f6285934084e346dadd4c2fa, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &4896674841764669304
 AudioSource:
   m_ObjectHideFlags: 0
@@ -538,6 +538,12 @@ MonoBehaviour:
     - {fileID: 241620830004830169, guid: 552146dbb8bac6f449493bca4b69540f, type: 3}
     - {fileID: -362971539341918764, guid: 552146dbb8bac6f449493bca4b69540f, type: 3}
     - {fileID: 2178398316516280758, guid: 552146dbb8bac6f449493bca4b69540f, type: 3}
+    spriteWallslide:
+    - {fileID: 3974224528455760076, guid: 5a448cc07b6e09343924bf933b0cb70e, type: 3}
+    - {fileID: 403085039841989221, guid: 5a448cc07b6e09343924bf933b0cb70e, type: 3}
+    - {fileID: -6018873884784744797, guid: 5a448cc07b6e09343924bf933b0cb70e, type: 3}
+    - {fileID: -674972067355074983, guid: 5a448cc07b6e09343924bf933b0cb70e, type: 3}
+    - {fileID: 4366178942990776957, guid: 5a448cc07b6e09343924bf933b0cb70e, type: 3}
     spriteJump: {fileID: 21300000, guid: 320f4eb52e227b446830a1f6fd691fca, type: 3}
     spriteFall: {fileID: 21300000, guid: 5c8b2ada1a819a54e8c051165c738f18, type: 3}
   - skinName: PinkMan
@@ -566,6 +572,7 @@ MonoBehaviour:
     - {fileID: 241620830004830169, guid: cdb0cc8ca9aac2a4d84c6aa3c1cbf52b, type: 3}
     - {fileID: -362971539341918764, guid: cdb0cc8ca9aac2a4d84c6aa3c1cbf52b, type: 3}
     - {fileID: 2178398316516280758, guid: cdb0cc8ca9aac2a4d84c6aa3c1cbf52b, type: 3}
+    spriteWallslide: []
     spriteJump: {fileID: 21300000, guid: edbf2f282f3feb940b6238d4d339ada4, type: 3}
     spriteFall: {fileID: 21300000, guid: 1a6feec238b9a99499082bb755fa32df, type: 3}
   - skinName: MaskDude
@@ -594,6 +601,7 @@ MonoBehaviour:
     - {fileID: 241620830004830169, guid: 97d5ce53f3ac76e4888319c6a53c7ff3, type: 3}
     - {fileID: -362971539341918764, guid: 97d5ce53f3ac76e4888319c6a53c7ff3, type: 3}
     - {fileID: 2178398316516280758, guid: 97d5ce53f3ac76e4888319c6a53c7ff3, type: 3}
+    spriteWallslide: []
     spriteJump: {fileID: 21300000, guid: 2d728ff08787c6640bbe4984c7ff018b, type: 3}
     spriteFall: {fileID: 21300000, guid: 88794fc5febd16e40a94cacbf542b65b, type: 3}
   - skinName: NinjaFrog
@@ -622,6 +630,7 @@ MonoBehaviour:
     - {fileID: 241620830004830169, guid: e362bc6a7c79fce4db16d145d43a5550, type: 3}
     - {fileID: -362971539341918764, guid: e362bc6a7c79fce4db16d145d43a5550, type: 3}
     - {fileID: 2178398316516280758, guid: e362bc6a7c79fce4db16d145d43a5550, type: 3}
+    spriteWallslide: []
     spriteJump: {fileID: 21300000, guid: 4872bd1108769a946a6acb68dc156fcf, type: 3}
     spriteFall: {fileID: 21300000, guid: b6d14bcb8d9dbb349beb9d3619096732, type: 3}
   - skinName: Tiger
@@ -650,5 +659,6 @@ MonoBehaviour:
     - {fileID: -505908442, guid: 118b93559df478a4ba1e3d1284de56f0, type: 3}
     - {fileID: -965278586, guid: 118b93559df478a4ba1e3d1284de56f0, type: 3}
     - {fileID: -711392398, guid: 118b93559df478a4ba1e3d1284de56f0, type: 3}
+    spriteWallslide: []
     spriteJump: {fileID: 21300000, guid: 919271d07a3241a4f8714883ecc436f5, type: 3}
     spriteFall: {fileID: 21300000, guid: 9d3d5dadb12b35b4e90662a273a32829, type: 3}
