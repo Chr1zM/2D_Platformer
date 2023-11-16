@@ -10,20 +10,19 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D collider2d;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private float dirX = 0f;
 
     [SerializeField] private LayerMask jumpableGround;
-
-    private float dirX = 0f;
-    [SerializeField] private float moveSpeed = 7f;
+    [SerializeField] private AudioSource jumpSoundEffect;
+    
     [SerializeField] private float jumpForce = 14f;
 
-    [SerializeField] private float wallJumpForce = 10f;
+    [SerializeField] private Vector2 wallJumpForce = new Vector2(20f, 14f);
     [SerializeField] private float wallSlideSpeed = 1f;
-    private bool isOnWall = false;
+    private bool isSliding = false;
 
+    [SerializeField] private float moveSpeed = 7f;
     private enum MovementState { idle, running, jumping, falling, wallsliding }
-
-    [SerializeField] private AudioSource jumpSoundEffect;
 
     [SerializeField] private bool movementEnabled = true;
 
@@ -44,59 +43,45 @@ public class PlayerMovement : MonoBehaviour
             animator.SetInteger("movementState", (int)MovementState.idle);
             return;
         }
-
         dirX = Input.GetAxisRaw("Horizontal");
         rigidbody2d.velocity = new Vector2(dirX * moveSpeed, rigidbody2d.velocity.y);
 
-        isOnWall = false;
-
-        if (IsTouchingWall() && !IsGrounded())
+        isSliding = false;
+        if (IsTouchingWall() && !IsGrounded() && dirX != 0f)
         {
-            isOnWall = true;
+            isSliding = true;
             WallSlide();
             Debug.Log("Player is WallSliding");
         }
 
         if (Input.GetButtonDown("Jump"))
         {
-            if (IsGrounded())
-            {
-                Debug.Log("Player is Jumping");
-                Jump();
-            }
-            else if (isOnWall)
-            {
-                Debug.Log("Player is Walljumping");
-                WallJump();
-
-            }
+            Jump();
         }
+
         UpdateAnimationState();
     }
 
-    private bool IsTouchingWall()
-    {
-        return Physics2D.BoxCast(collider2d.bounds.center, collider2d.bounds.size, 0f, spriteRenderer.flipX ? Vector2.left : Vector2.right, 0.01f, jumpableGround);
-    }
-
+    private bool IsTouchingWall() => Physics2D.BoxCast(collider2d.bounds.center, collider2d.bounds.size, 0f, spriteRenderer.flipX ? Vector2.left : Vector2.right, 0.01f, jumpableGround);
     private void WallSlide() => rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, Mathf.Clamp(rigidbody2d.velocity.y, -wallSlideSpeed, float.MaxValue));
+    private bool IsGrounded() => Physics2D.BoxCast(collider2d.bounds.center, collider2d.bounds.size, 0f, Vector2.down, 0.01f, jumpableGround);
 
     private void Jump()
     {
-        jumpSoundEffect.Play();
-        rigidbody2d.velocity = new Vector2(dirX * moveSpeed, jumpForce);
-    }
+        if (IsGrounded())
+        {
+            Debug.Log("Player is Jumping");
+            jumpSoundEffect.Play();
+            rigidbody2d.velocity = new Vector2(dirX * moveSpeed, jumpForce);
 
-    private void WallJump()
-    {
-        jumpSoundEffect.Play();
-        int wallDirection = spriteRenderer.flipX ? -1 : 1;
-        // TODO Fix Walljump
-        rigidbody2d.velocity = new Vector2(wallJumpForce * wallDirection, jumpForce);
-
-        spriteRenderer.flipX = !spriteRenderer.flipX;
+        }
+        else if (isSliding)
+        {
+            Debug.Log("Player is Walljumping");
+            jumpSoundEffect.Play();
+            rigidbody2d.velocity = new Vector2(-dirX * wallJumpForce.x, wallJumpForce.y);
+        }
     }
-    private bool IsGrounded() => Physics2D.BoxCast(collider2d.bounds.center, collider2d.bounds.size, 0f, Vector2.down, 0.01f, jumpableGround);
 
     private bool IsMovementEnabled() => movementEnabled;
     public void SetMovementEnabled(bool movementEnabled) => this.movementEnabled = movementEnabled;
@@ -129,11 +114,10 @@ public class PlayerMovement : MonoBehaviour
             movementState = MovementState.falling;
         }
 
-        if (isOnWall)
+        if (isSliding)
         {
             movementState = MovementState.wallsliding;
         }
-        // TODO Fix Wallsliding Animation
         animator.SetInteger("movementState", (int)movementState);
     }
 }
