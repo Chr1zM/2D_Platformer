@@ -183,7 +183,7 @@ MonoBehaviour:
   jumpSoundEffect: {fileID: 4896674841764669304}
   wallSlidingSpeed: 1
   wallJumpDuration: 0.1
-  wallJumpForce: {x: 10, y: 14}
+  wallJumpForce: {x: 7, y: 10}
 --- !u!114 &4896674841764669310
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Wall Jump")]
     [SerializeField] private float wallSlidingSpeed = 1f;
     [SerializeField] private float wallJumpDuration = 0.1f;
-    [SerializeField] private Vector2 wallJumpForce = new Vector2(10f, 14f);
+    [SerializeField] private Vector2 wallJumpForce = new Vector2(7f, 10f);
 
     private bool isJumping = false;
     private bool isSliding = false;
