@@ -10,21 +10,29 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D collider2d;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-    private float dirX = 0f;
-
-    [SerializeField] private LayerMask jumpableGround;
-    [SerializeField] private AudioSource jumpSoundEffect;
-    
-    [SerializeField] private float jumpForce = 14f;
-
-    [SerializeField] private Vector2 wallJumpForce = new Vector2(20f, 14f);
-    [SerializeField] private float wallSlideSpeed = 1f;
-    private bool isSliding = false;
-
-    [SerializeField] private float moveSpeed = 7f;
-    private enum MovementState { idle, running, jumping, falling, wallsliding }
 
     [SerializeField] private bool movementEnabled = true;
+
+    private float dirX = 0f;
+    [Header("Jump")]
+    [SerializeField] private float movingSpeed = 7f;
+    [SerializeField] private float jumpForce = 14f;
+
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private AudioSource jumpSoundEffect;
+
+    private enum MovementState { idle, running, jumping, falling, wallsliding }
+
+    [Header("Wall Jump")]
+    [SerializeField] private float wallSlidingSpeed = 1f;
+    [SerializeField] private float wallJumpDuration = 0.1f;
+    [SerializeField] private Vector2 wallJumpForce = new Vector2(10f, 14f);
+
+    private bool isJumping = false;
+    private bool isSliding = false;
+    private bool isTouchingWall = false;
+    private bool isGrounded = false;
+    private bool isWallJumping = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -43,44 +51,84 @@ public class PlayerMovement : MonoBehaviour
             animator.SetInteger("movementState", (int)MovementState.idle);
             return;
         }
+
         dirX = Input.GetAxisRaw("Horizontal");
-        rigidbody2d.velocity = new Vector2(dirX * moveSpeed, rigidbody2d.velocity.y);
-
-        isSliding = false;
-        if (IsTouchingWall() && !IsGrounded() && dirX != 0f)
-        {
-            isSliding = true;
-            WallSlide();
-            Debug.Log("Player is WallSliding");
-        }
-
         if (Input.GetButtonDown("Jump"))
         {
-            Jump();
+            isJumping = true;
+        }
+
+        isGrounded = IsGrounded();
+        isTouchingWall = IsTouchingWall();
+
+        if (isTouchingWall && !isGrounded && dirX != 0f)
+        {
+            isSliding = true;
+
+        }
+        else
+        {
+            isSliding = false;
         }
 
         UpdateAnimationState();
     }
 
-    private bool IsTouchingWall() => Physics2D.BoxCast(collider2d.bounds.center, collider2d.bounds.size, 0f, spriteRenderer.flipX ? Vector2.left : Vector2.right, 0.01f, jumpableGround);
-    private void WallSlide() => rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, Mathf.Clamp(rigidbody2d.velocity.y, -wallSlideSpeed, float.MaxValue));
-    private bool IsGrounded() => Physics2D.BoxCast(collider2d.bounds.center, collider2d.bounds.size, 0f, Vector2.down, 0.01f, jumpableGround);
+    private void FixedUpdate()
+    {
+        if (isJumping)
+        {
+            Jump();
+        }
+
+        if (isSliding)
+        {
+            WallSlide();
+            Debug.Log("Player is WallSliding");
+        }
+
+        if (isWallJumping)
+        {
+            WallJump();
+        }
+        else
+        {
+            // Default Moving
+            rigidbody2d.velocity = new Vector2(dirX * movingSpeed, rigidbody2d.velocity.y);
+        }
+    }
+
+    private bool IsGrounded()
+        => Physics2D.BoxCast(collider2d.bounds.center, collider2d.bounds.size, 0f, Vector2.down, 0.05f, groundLayer);
+    private bool IsTouchingWall()
+        => Physics2D.BoxCast(collider2d.bounds.center, collider2d.bounds.size, 0f, spriteRenderer.flipX ? Vector2.left : Vector2.right, 0.05f, groundLayer);
+    private void WallSlide()
+        => rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, Mathf.Clamp(rigidbody2d.velocity.y, -wallSlidingSpeed, float.MaxValue));
+    private void WallJump()
+        => rigidbody2d.velocity = new Vector2(-dirX * wallJumpForce.x, wallJumpForce.y);
 
     private void Jump()
     {
-        if (IsGrounded())
+        if (isGrounded)
         {
             Debug.Log("Player is Jumping");
             jumpSoundEffect.Play();
-            rigidbody2d.velocity = new Vector2(dirX * moveSpeed, jumpForce);
+            rigidbody2d.velocity = new Vector2(dirX * movingSpeed, jumpForce);
 
         }
         else if (isSliding)
         {
             Debug.Log("Player is Walljumping");
             jumpSoundEffect.Play();
-            rigidbody2d.velocity = new Vector2(-dirX * wallJumpForce.x, wallJumpForce.y);
+            isWallJumping = true;
+            Invoke("StopWallJump", wallJumpDuration);
         }
+        isJumping = false;
+    }
+
+    private void StopWallJump()
+    {
+        isWallJumping = false;
     }
 
     private bool IsMovementEnabled() => movementEnabled;

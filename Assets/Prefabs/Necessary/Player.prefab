@@ -174,15 +174,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f055acf3f86c9e343bdd2e851a4ae3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpableGround:
+  movementEnabled: 1
+  movingSpeed: 7
+  jumpForce: 14
+  groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  moveSpeed: 7
-  jumpForce: 14
-  wallJumpForce: 10
-  wallSlideSpeed: 1
   jumpSoundEffect: {fileID: 4896674841764669304}
-  movementEnabled: 1
+  wallSlidingSpeed: 1
+  wallJumpDuration: 0.1
+  wallJumpForce: {x: 10, y: 14}
 --- !u!114 &4896674841764669310
 MonoBehaviour:
   m_ObjectHideFlags: 0
