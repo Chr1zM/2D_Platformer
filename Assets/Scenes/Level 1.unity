@@ -80990,14 +80990,6 @@ PrefabInstance:
       propertyPath: gameOverMenu
       value: 
       objectReference: {fileID: 995517174}
-    - target: {fileID: 4896674841764669308, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
-      propertyPath: wallJumpForce.x
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4896674841764669308, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
-      propertyPath: wallJumpForce.y
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4896674841764669310, guid: dabdb4e7baea5b844bd83c4541cc5e4c, type: 3}
       propertyPath: fruitsText
       value: 
