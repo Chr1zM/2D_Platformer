@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = IsGrounded();
         isTouchingWall = IsTouchingWall();
 
-        if (isTouchingWall && !isGrounded && dirX != 0f)
+        if (isTouchingWall && !isGrounded)
         {
             isSliding = true;
 
@@ -105,7 +105,10 @@ public class PlayerMovement : MonoBehaviour
     private void WallSlide()
         => rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, Mathf.Clamp(rigidbody2d.velocity.y, -wallSlidingSpeed, float.MaxValue));
     private void WallJump()
-        => rigidbody2d.velocity = new Vector2(-dirX * wallJumpForce.x, wallJumpForce.y);
+    {
+        float direction = spriteRenderer.flipX ? 1 : -1;
+        rigidbody2d.velocity = new Vector2(direction * wallJumpForce.x, wallJumpForce.y);
+    }
 
     private void Jump()
     {
