@@ -5,8 +5,16 @@ using UnityEngine;
 public class Fan : MonoBehaviour {
     [SerializeField] private float fanForce = 20f;
 
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Player")) {
+            // DO NOTHING
+            Debug.Log("Colliding with Fan");
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
+            Debug.Log("Player in fan area.");
             ApplyFanForce(collision.gameObject);
         }
     }
@@ -15,7 +23,10 @@ public class Fan : MonoBehaviour {
         Rigidbody2D playerRigidbody = player.GetComponent<Rigidbody2D>();
 
         Vector2 fanToPlayer = player.transform.position - transform.position;
+        fanToPlayer.Normalize();
         Vector2 forceDirection = DetermineForceDirection(fanToPlayer);
+
+        Debug.Log($"Applying force to player. Direction: {forceDirection * fanForce}");
         playerRigidbody.AddForce(forceDirection * fanForce, ForceMode2D.Impulse);
     }
 
