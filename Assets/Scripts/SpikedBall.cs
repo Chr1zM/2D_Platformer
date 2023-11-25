@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikedBall : MonoBehaviour
-{
-    [SerializeField] private Transform centerPoint; 
+public class SpikedBall : MonoBehaviour {
+    [SerializeField] private Transform centerPoint;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float radius;
     [SerializeField] private GameObject chainPrefab;
@@ -12,19 +11,16 @@ public class SpikedBall : MonoBehaviour
     private float angle = 0.0f;
     private List<GameObject> chainLinks = new List<GameObject>();
 
-    private void Start()
-    {
+    private void Start() {
         // init dynamic Chain for the swinging Ball
-        for (int i = 0; i < (int)radius * 4; i++)
-        {
+        for (int i = 0; i < (int)radius * 4; i++) {
             GameObject chainLink = Instantiate(chainPrefab);
             chainLink.transform.position = transform.position;
             chainLinks.Add(chainLink);
         }
     }
 
-    private void Update()
-    {
+    private void Update() {
         // calc Ball position
         angle += rotationSpeed * Time.deltaTime;
         float x = centerPoint.position.x + Mathf.Cos(angle) * radius;
@@ -34,10 +30,8 @@ public class SpikedBall : MonoBehaviour
         UpdateChain();
     }
 
-    private void UpdateChain()
-    {
-        for (int i = 0; i < chainLinks.Count; i++)
-        {
+    private void UpdateChain() {
+        for (int i = 0; i < chainLinks.Count; i++) {
             // calc Chain positions
             float t = (i + 1) / (float)chainLinks.Count;
             Vector3 chainPosition = Vector3.Lerp(centerPoint.position, transform.position, t);

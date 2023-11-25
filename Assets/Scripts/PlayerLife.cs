@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerLife : MonoBehaviour
-{
+public class PlayerLife : MonoBehaviour {
     [SerializeField] private AudioSource deathSoundEffect;
     private GameOverMenu gameOverMenu;
 
@@ -15,20 +14,17 @@ public class PlayerLife : MonoBehaviour
     private bool dead = false;
 
     // Start is called before the first frame update
-    private void Start()
-    {
+    private void Start() {
         gameOverMenu = FindObjectOfType<GameOverMenu>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+    private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Trap") && !dead) Die();
     }
 
-    private void Die()
-    {
+    private void Die() {
         dead = true;
         deathSoundEffect.Play();
         rb.bodyType = RigidbodyType2D.Static;
@@ -36,8 +32,7 @@ public class PlayerLife : MonoBehaviour
         Debug.Log("Player died");
     }
 
-    private void GameOver()
-    {
+    private void GameOver() {
         // This Method is called in the Player Animation "Player_Death" as an Event
         Debug.Log("Game Over!");
         gameOverMenu.ShowGameOverMenu();

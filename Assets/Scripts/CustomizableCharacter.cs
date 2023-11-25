@@ -3,19 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CustomizableCharacter : MonoBehaviour
-{
+public class CustomizableCharacter : MonoBehaviour {
     [SerializeField] private int skinNr;
     [SerializeField] private Skins[] skins;
     SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        for (int i = 0; i < skins.Length; i++)
-        {
-            if (skins[i].skinName == PlayerPrefs.GetString("SelectedPlayerSkin", "VirtualGuy"))
-            {
+    void Start() {
+        for (int i = 0; i < skins.Length; i++) {
+            if (skins[i].skinName == PlayerPrefs.GetString("SelectedPlayerSkin", "VirtualGuy")) {
                 skinNr = i;
             }
         }
@@ -24,26 +20,21 @@ public class CustomizableCharacter : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (skinNr >= skins.Length || skinNr < 0)
-        {
+    void Update() {
+        if (skinNr >= skins.Length || skinNr < 0) {
             skinNr = Math.Abs(skinNr % skins.Length);
         }
     }
 
-    private void LateUpdate()
-    {
+    private void LateUpdate() {
         SkinChoice();
     }
 
-    void SkinChoice()
-    {
+    void SkinChoice() {
         string spriteName = spriteRenderer.sprite.name;
         int spriteNr;
 
-        switch (spriteName)
-        {
+        switch (spriteName) {
             case string s when s.Contains("Idle (32x32)_"):
                 spriteNr = int.Parse(s.Replace("Idle (32x32)_", ""));
                 spriteRenderer.sprite = skins[skinNr].spritesIdle[spriteNr];
@@ -70,13 +61,12 @@ public class CustomizableCharacter : MonoBehaviour
 }
 
 [System.Serializable]
-public struct Skins
-{
+public struct Skins {
     public string skinName;
     public Sprite[] spritesIdle;
     public Sprite[] spritesRun;
     public Sprite[] spriteWallslide;
     public Sprite spriteJump;
     public Sprite spriteFall;
-    
+
 }

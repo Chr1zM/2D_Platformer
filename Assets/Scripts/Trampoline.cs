@@ -1,8 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Trampoline : MonoBehaviour
-{
+public class Trampoline : MonoBehaviour {
     [SerializeField] private float bounceForce = 30f;
     [SerializeField] private float cooldownTime = 1f;
 
@@ -11,21 +10,17 @@ public class Trampoline : MonoBehaviour
     private bool canBounce = true;
     private bool jump = true;
 
-    private void Start()
-    {
+    private void Start() {
         animator = GetComponent<Animator>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (canBounce && collision.gameObject.CompareTag("Player"))
-        {
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (canBounce && collision.gameObject.CompareTag("Player")) {
             BouncePlayer(collision.gameObject);
         }
     }
 
-    private void BouncePlayer(GameObject player)
-    {
+    private void BouncePlayer(GameObject player) {
         Rigidbody2D playerRigidbody = player.GetComponent<Rigidbody2D>();
         Vector2 bounceDirection = CalculateBounceDirection(player.transform.position);
 
@@ -37,13 +32,11 @@ public class Trampoline : MonoBehaviour
         StartCoroutine(Cooldown());
     }
 
-    private Vector2 CalculateBounceDirection(Vector2 playerPosition)
-    {
+    private Vector2 CalculateBounceDirection(Vector2 playerPosition) {
         return (playerPosition - (Vector2)transform.position).normalized;
     }
 
-    private IEnumerator Cooldown()
-    {
+    private IEnumerator Cooldown() {
         yield return new WaitForSeconds(cooldownTime);
         canBounce = true;
         jump = false;
